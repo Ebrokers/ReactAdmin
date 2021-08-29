@@ -5,31 +5,32 @@ import { Container, Table } from 'reactstrap';
 export class PropertiesById extends Component {
 
   state = {
-    properties: []
+    propertiesid: []
   };
 
   async componentDidMount() {
-    const response = await fetch('/getByMeId/1');
+    const response = await fetch('/getProperty/1');
     const body = await response.json();
-    this.setState({properties: body});
+    this.setState({propertiesid: body});
   }
 
   render() {
-    const {properties, isLoading} = this.state;
+    const {propertiesid, isLoading} = this.state;
 
     if (isLoading) {
       return <p>Loading...</p>;
     }
 
-    const propertyList = properties.map(properties => {
-      const name = `${properties.name} `;
-      const location = `${properties.location} `;
-      const id = `${properties.id} `;
-      return <tr key={properties.id}>
+    const propertyListId = (propertiesid  => {
+      const name = `${propertiesid.name} `;
+      const location = `${propertiesid.location} `;
+      const id = `${propertiesid.id} `;
+      const meid = `${propertiesid.meid} `;
+      return <tr key={propertiesid.id}>
         <td>{id}</td>
         <td>{name}</td>
         <td>{location}</td>
-        <td>{properties.meid}</td>
+        <td>{meid}</td>
       </tr>
     });
 
@@ -47,7 +48,7 @@ export class PropertiesById extends Component {
           </tr>
           </thead>
           <tbody>
-          {propertyList}
+          {propertyListId}
           </tbody>
         </Table>
       </Container>

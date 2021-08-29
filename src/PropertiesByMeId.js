@@ -2,50 +2,52 @@ import React, { Component } from 'react';
 import './App.css';
 import { Container, Table } from 'reactstrap';
 
-export class MerchantById extends Component {
+export class PropertiesByMeId extends Component {
 
   state = {
-    merchants: []
+    properties: []
   };
 
   async componentDidMount() {
-    const response = await fetch('/getMerchant/1');
+    const response = await fetch('/getPropertyByMeId/1');
     const body = await response.json();
-    this.setState({merchants: body});
+    this.setState({properties: body});
   }
 
   render() {
-    const {merchants, isLoading} = this.state;
+    const {properties, isLoading} = this.state;
 
     if (isLoading) {
       return <p>Loading...</p>;
     }
 
-    const merchantList = merchants.map(properties => {
-      const name = `${merchants.name} `;
-      const email = `${merchants.email} `;
-      const id = `${merchants.id} `;
-      return <tr key={merchants.id}>
+    const propertyList = properties.map(properties => {
+      const name = `${properties.name} `;
+      const location = `${properties.location} `;
+      const id = `${properties.id} `;
+      return <tr key={properties.id}>
         <td>{id}</td>
         <td>{name}</td>
-        <td>{email}</td>
+        <td>{location}</td>
+        <td>{properties.meid}</td>
       </tr>
     });
 
   return (
     <div>
       <Container fluid>
-        <h3>Merchants List By Id</h3>
+        <h3>Property List By MeId</h3>
         <Table className="mt-4">
           <thead>
           <tr>
             <th>Id</th>
             <th>Name</th>
-            <th>email</th>
+            <th>Location</th>
+            <th>MeId</th>
           </tr>
           </thead>
           <tbody>
-          {merchantList}
+          {propertyList}
           </tbody>
         </Table>
       </Container>

@@ -4,15 +4,18 @@ import {Properties} from './Properties.js';
 import {Merchants} from './Merchants.js';
 import AppNavbar from './AppNavbar';
 import {PropertiesById} from './PropertiesById.js';
-import {MerchantById} from './MerchantById.js';
+import {PropertiesByMeId} from './PropertiesByMeId.js';
+import {MerchantsById} from './MerchantsById.js';
 
 function App() {
   return (
     <div className="App">
       <AppNavbar/>
       <Properties/>
-      <PropertiesById/>
       <Merchants/>
+      <PropertiesByMeId/>
+      <PropertiesById/>
+      <MerchantsById/>
      
     </div>
   );
