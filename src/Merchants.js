@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Container, Table } from 'reactstrap';
-
+import { Button, Container, Table } from 'reactstrap';
+import { Link } from 'react-router-dom';
 export class Merchants extends Component {
 
   state = {
@@ -33,7 +33,11 @@ export class Merchants extends Component {
     });
 
   return (
+    
     <div>
+      <div className="float-right">
+            <Button color="success"  tag={Link} to="/addMer">Add Merchant</Button>
+      </div>
       <Container fluid>
         <h3>Merchants List</h3>
         <Table className="mt-4">

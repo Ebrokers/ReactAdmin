@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import {  Container, Table } from 'reactstrap';
-
+import {  Button,Container, Table } from 'reactstrap';
+import { Link } from 'react-router-dom';
 export class Properties extends Component {
 
   state = {
@@ -34,6 +34,9 @@ export class Properties extends Component {
 
   return (
     <div>
+       <div className="float-right">
+            <Button color="success" tag={Link} to="/groups/new">Add Property</Button>
+      </div>
       <Container fluid>
         <h3>Property List</h3>
         <Table className="mt-4">

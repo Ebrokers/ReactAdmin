@@ -6,7 +6,9 @@ import AppNavbar from './AppNavbar';
 import {PropertiesById} from './PropertiesById.js';
 import {PropertiesByMeId} from './PropertiesByMeId.js';
 import {MerchantsById} from './MerchantsById.js';
+import {Home} from './Home.js';
 import React, { useState } from 'react';
+import {AddMerchant} from './AddMerchant.js';
 
 import {
   BrowserRouter as Router,
@@ -17,14 +19,16 @@ import {
 
 function App() {
   return (
-    <div>
-      <AppNavbar/>
-      <Properties/>
-      <Merchants/>
-      <PropertiesByMeId/>
-      <PropertiesById/>
-      <MerchantsById/>
-    </div>
+    <Router>
+      <div>
+        <AppNavbar />
+        <Switch>
+          <Route path='/home' exact component={Home} />
+          <Route path='/properties' component={Properties} />
+          <Route path='/merchants' component={Merchants} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
