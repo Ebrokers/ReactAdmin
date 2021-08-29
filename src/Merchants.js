@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import {  Container, Table } from 'reactstrap';
+import { Container, Table } from 'reactstrap';
 
 export class Merchants extends Component {
 

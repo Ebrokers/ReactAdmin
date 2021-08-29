@@ -9,10 +9,10 @@ export default function Header() {
                     <a className="nav-link active" aria-current="page" href="/">Home</a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="/Properties">Properties</a>
+                    <a className="nav-link" href="/properties">Properties</a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="/Merchants">Merchants</a>
+                    <a className="nav-link" href="/merchants">Merchants</a>
                 </li>
             </ul>
     )
