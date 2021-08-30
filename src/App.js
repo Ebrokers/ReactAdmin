@@ -10,6 +10,7 @@ import {Home} from './Home.js';
 import React, { useState } from 'react';
 import {AddMerchant} from './AddMerchant.js';
 
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,7 +18,15 @@ import {
   Link
 } from "react-router-dom";
 
+
+
 function App() {
+  const [isOpen, setIsOpen] = useState(false);
+ 
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
+  }
+
   return (
     <Router>
       <div>
@@ -26,10 +35,11 @@ function App() {
           <Route path='/home' exact component={Home} />
           <Route path='/properties' component={Properties} />
           <Route path='/merchants' component={Merchants} />
-        </Switch>
+        </Switch>  
       </div>
     </Router>
   );
 }
 
 export default App;
+

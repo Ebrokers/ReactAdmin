@@ -24,8 +24,6 @@ export class AddMerchant extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-
-
   handleChange(event) {
     const target = event.target;
     const value = target.value;
@@ -39,7 +37,7 @@ export class AddMerchant extends Component {
     event.preventDefault();
     const {item} = this.state;
 
-    await fetch('/api/group' + (item.id ? '/' + item.id : ''), {
+    await fetch('/group' + (item.id ? '/' + item.id : ''), {
       method: (item.id) ? 'PUT' : 'POST',
       headers: {
         'Accept': 'application/json',
